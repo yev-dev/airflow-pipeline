@@ -15,7 +15,7 @@ from pandas_datareader import data, wb
 
 
 def get_equity_prices(**kwargs):
-    sp500 = data.DataReader('^GSPC', data_source="yahoo", start='1/1/2000', end='1/12/2018')
+    sp500 = data.DataReader('^GOOGL', data_source="yahoo", start='1/1/2000', end='1/12/2018')
     sp500.info()
 
 

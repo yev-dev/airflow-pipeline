@@ -37,12 +37,16 @@ RUN set -ex \
         $buildDeps \
         freetds-bin \
         build-essential \
-        default-libmysqlclient-dev \
         apt-utils \
         curl \
         rsync \
         netcat \
         locales \
+        git \
+        python3-pip \
+        python3-dev \
+        default-libmysqlclient-dev \
+
     && sed -i 's/^# en_US.UTF-8 UTF-8$/en_US.UTF-8 UTF-8/g' /etc/locale.gen \
     && locale-gen \
     && update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8 \
@@ -52,7 +56,8 @@ RUN set -ex \
     && pip install pyOpenSSL \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
-    && pip install apache-airflow[crypto,celery,postgres,hive,jdbc,mysql,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
+    && pip install pymysql \
+    && pip install apache-airflow[crypto,celery,postgres,mysql,redis,mongo,ssh${AIRFLOW_DEPS:+,}${AIRFLOW_DEPS}]==${AIRFLOW_VERSION} \
     && pip install 'redis>=2.10.5,<3' \
     && if [ -n "${PYTHON_DEPS}" ]; then pip install ${PYTHON_DEPS}; fi \
     && apt-get purge --auto-remove -yqq $buildDeps \

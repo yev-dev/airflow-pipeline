@@ -15,7 +15,7 @@ CREATE TABLE `research_db`.`signals` (
 PRIMARY KEY (`as_of_date`, `ticker`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `trading_db`.`trading_signal`s (
+CREATE TABLE `trading_db`.`signals` (
 `as_of_date` date not null,
 `ticker` varchar(45) not null,
 `signal` enum ('Buy','Sell', 'Hold'),

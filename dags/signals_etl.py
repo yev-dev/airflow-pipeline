@@ -90,7 +90,7 @@ class ReturningMySqlOperator(BaseMySqlOperator):
 default_args = {
     'owner': 'admin',
     'depends_on_past': False,
-    'email': ['yevgeniy.y@provenanceim.com'],
+    'email': ['yev.developer@gmail.com'],
     'email_on_failure': False,
     'email_on_retry': False,
     'start_date': datetime.now() - timedelta(days=4),
